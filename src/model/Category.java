@@ -1,26 +1,9 @@
 package model;
 
-import java.io.Serializable;
+public class Category {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "category")
-public class Category implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "ID")
 	private int id;
 
-	@Column(name = "NAME")
 	private String name;
 
 	public Category() {
