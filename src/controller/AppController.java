@@ -8,13 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.CategoryService;
+
 /**
  * Servlet implementation class AppController
  */
 @WebServlet("/AppController")
 public class AppController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private CategoryService categoryService;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,7 +30,9 @@ public class AppController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("some thing ok");
+		categoryService = new CategoryService();
+		
+		categoryService.getAll().stream().forEach(e -> System.out.println(e));
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
